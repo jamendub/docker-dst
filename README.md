@@ -29,7 +29,7 @@ Try to check docker logs to give you a clue...
 
 ### How to run ?
 
-**docker run -ti -v *cluster*:/dst/cluster jamendub/dst:latest**
+>**docker run -ti -v *cluster*:/dst/cluster jamendub/dst:latest**
 
 ### How to configure mods ?
 
@@ -51,7 +51,7 @@ Try to check docker logs to give you a clue...
 First you have to make sure that in the *configvolume* you put the configuration files described above.
 Then you can run the container this way so it takes the mods config in consideration.
 
-**docker run -ti\
+>**docker run -ti\
 -v *cluster*:/dst/cluster\
 -v *mods*:/dst/mods\
 jamendub/dst:latest**
