@@ -1,37 +1,63 @@
 # docker-dst
 
-## How to run ?
+### How to configure ?
 
-docker run -ti -v myvolume:/dst/cluster jamendub/dst:latest
+When you will run the container, there will be a *cluster* volume for world generation and cluster settings and mods.
+Inside that volume, you can put the configurations as they are described on other websites link this one :
 
-## How to configure ?
+https://forums.kleientertainment.com/topic/64441-dedicated-server-quick-setup-guide-linux/
 
-Inside your volume, go to the 'cluster' folder for world generation and cluster settings and mods
+Here is my list of files to give you an idea
 
-## How to enable mods ?
+>*cluster*<br/>
+-- Caves<br/>
+---- modoverrides.lua<br/>
+---- server.ini<br/>
+---- worldgenoverride.lua<br/>
+-- Master<br/>
+---- modoverrides.lua<br/>
+---- server.ini<br/>
+---- worldgenoverride.lua<br/>
+-- cluster.ini<br/>
+-- cluster_token.txt
 
-To enable mods, you'll have to mount at least 1 more volume in read-only fashion :
+### How to run ?
 
-docker run -ti
--v myvolume:/dst/cluster
--v dedicated_server_mods_setup.lua:/dst/mods/dedicated_server_mods_setup.lua:ro
-jamendub/dst:latest
+docker run -ti -v *configvolume*:/dst/cluster jamendub/dst:latest
 
-## How to configure mods ?
+### How to configure mods ?
 
-Inside the dedicated_server_mods_setup.lua file that your mounted, add the required config lines so the mods will
-install upon server restart. Read Only is mandatory because on server update it gets reset otherwise...
+Inside the *mod* volume you have to put some files in order to download the mods when the server restarts.
 
-## How to update ?
+Here is an example of my files (for detailed config go to the game forums/wikis) :
 
-Simply restart the container
+https://forums.kleientertainment.com/topic/64441-dedicated-server-quick-setup-guide-linux/
 
-## What does it do ?
+>*mods*<br/>
+-- dedicated_server_mods_setup.lua<br/>
+-- modsettings.lua
 
-Built on top of jamendub/steam which already packages steamcmd
-Install dependencies libcurl4-gnutls-dev:i386 lib32stdc++6
-Creates a volume for the cluster config and save file at : /dst/cluster
-Populates it with a dummy config that you can easily edit following instructions on the Klei Forums.
-Copies a start.sh bash script to install server from Steam CMD and start it when you run the container.
+### How to enable mods ?
 
-### That's all folks.
+First you have to make sure that in the *configvolume* you put the configuration files described above.
+Then you can run the container this way so it takes the mods config in consideration.
+
+**docker run -ti
+-v *configvolume*:/dst/cluster
+-v modvolume:/dst/mods
+jamendub/dst:latest**
+
+### How to update/restart ?
+
+Simply restart the container.
+
+### How does it works (under the hood) ?
+
+Built on top of jamendub/steam which already packages steamcmd<br/>
+Automatically installs dependencies : libcurl4-gnutls-dev:i386 lib32stdc++6<br/>
+Also creates a volume for the cluster config and save file at : /dst/cluster<br/>
+Populates it with a dummy config that you can easily edit following instructions on the Klei Forums.<br/>
+Copies a start.sh bash script to install server from Steam CMD and start it when you run the container.<br/>
+
+
+#### That's all folks.
