@@ -1,4 +1,5 @@
-# docker-dst
+# Don't Starve Together linux Dedicated Server
+## Running under linux via docker (don't be afraid)
 
 ### How to configure ?
 
@@ -7,9 +8,11 @@ Inside that volume, you can put the configurations as they are described on othe
 
 https://forums.kleientertainment.com/topic/64441-dedicated-server-quick-setup-guide-linux/
 
-Here is my list of files to give you an idea
+Here is my list of files to give you an idea :
 
 >*cluster*<br/>
+-- cluster.ini<br/>
+-- cluster_token.txt<br/>
 -- Caves<br/>
 ---- modoverrides.lua<br/>
 ---- server.ini<br/>
@@ -18,8 +21,9 @@ Here is my list of files to give you an idea
 ---- modoverrides.lua<br/>
 ---- server.ini<br/>
 ---- worldgenoverride.lua<br/>
--- cluster.ini<br/>
--- cluster_token.txt
+
+If your container does not start that means config is wrong !<br/>
+Try to check docker logs to give you a clue...
 
 ### How to run ?
 
@@ -37,6 +41,9 @@ https://forums.kleientertainment.com/topic/64441-dedicated-server-quick-setup-gu
 -- dedicated_server_mods_setup.lua<br/>
 -- modsettings.lua
 
+If your container does not start that means config is wrong !<br/>
+Try to check docker logs to give you a clue...
+
 ### How to enable mods ?
 
 First you have to make sure that in the *configvolume* you put the configuration files described above.
@@ -51,7 +58,7 @@ jamendub/dst:latest**
 
 Simply restart the container.
 
-### How does it works (under the hood) ?
+### How does it work (under the hood) ?
 
 Built on top of jamendub/steam which already packages steamcmd<br/>
 Automatically installs dependencies : libcurl4-gnutls-dev:i386 lib32stdc++6<br/>
@@ -60,4 +67,4 @@ Populates it with a dummy config that you can easily edit following instructions
 Copies a start.sh bash script to install server from Steam CMD and start it when you run the container.<br/>
 
 
-#### That's all folks.
+#### That's all folk, good game !
