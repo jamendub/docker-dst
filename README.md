@@ -15,11 +15,11 @@ Here is my list of files to give you an idea :
 >*cluster*\
 -- cluster.ini\
 -- cluster_token.txt\
--- Caves\
+-- *Caves*\
 ---- modoverrides.lua\
 ---- server.ini\
 ---- worldgenoverride.lua\
--- Master\
+-- *Master*\
 ---- modoverrides.lua\
 ---- server.ini\
 ---- worldgenoverride.lua
