@@ -35,8 +35,7 @@ Inside the *mod* volume you have to put some files in order to download the mods
 
 Here is an example of my files (for detailed config go to the game forums/wikis) :
 
-https://forums.kleientertainment.com/topic/64441-dedicated-server-quick-setup-guide-linux/
-
+https://forums.kleientertainment.com/topic/63723-guide-how-to-installconfigure-and-update-mods-on-dedicated-server/
 >*mods*<br/>
 -- dedicated_server_mods_setup.lua<br/>
 -- modsettings.lua
