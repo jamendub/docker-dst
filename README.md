@@ -12,16 +12,16 @@ https://forums.kleientertainment.com/topic/64441-dedicated-server-quick-setup-gu
 
 Here is my list of files to give you an idea :
 
->*cluster*
--- cluster.ini
--- cluster_token.txt
--- Caves
----- modoverrides.lua
----- server.ini
----- worldgenoverride.lua
--- Master
----- modoverrides.lua
----- server.ini
+>*cluster*\
+-- cluster.ini\
+-- cluster_token.txt\
+-- Caves\
+---- modoverrides.lua\
+---- server.ini\
+---- worldgenoverride.lua\
+-- Master\
+---- modoverrides.lua\
+---- server.ini\
 ---- worldgenoverride.lua
 
 If your container does not start that means config is wrong !
@@ -38,8 +38,9 @@ Inside the *mod* volume you have to put some files in order to download the mods
 Here is an example of my files (for detailed config go to the game forums/wikis) :
 
 https://forums.kleientertainment.com/topic/63723-guide-how-to-installconfigure-and-update-mods-on-dedicated-server/
->*mods*
--- dedicated_server_mods_setup.lua
+
+>*mods*\
+-- dedicated_server_mods_setup.lua\
 -- modsettings.lua
 
 If your container does not start that means config is wrong !
@@ -50,9 +51,9 @@ Try to check docker logs to give you a clue...
 First you have to make sure that in the *configvolume* you put the configuration files described above.
 Then you can run the container this way so it takes the mods config in consideration.
 
-**docker run -ti
--v *cluster*:/dst/cluster
--v *mods*:/dst/mods
+**docker run -ti\
+-v *cluster*:/dst/cluster\
+-v *mods*:/dst/mods\
 jamendub/dst:latest**
 
 ### How to update/restart ?
