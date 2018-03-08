@@ -1,5 +1,7 @@
 # Don't Starve Together linux Dedicated Server
-## Running under linux via docker (don't be afraid)
+
+Setup easily a linux dst server with you own settings via docker
+
 
 ### How to configure ?
 
