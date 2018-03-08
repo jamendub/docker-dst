@@ -8,7 +8,7 @@ fi
 
 /steam/steamcmd.sh +login anonymous +force_install_dir /dst +app_update 343050 validate +quit
 
-if [ -f "/dst/mods/dedicated_server_mods_setup.lua.bak" ]
+if [ -f "/dedicated_server_mods_setup.lua.bak" ]
 then
     cp -f /dedicated_server_mods_setup.lua.bak /dst/mods/dedicated_server_mods_setup.lua
     echo 'mods config file dedicated_server_mods_setup.lua restored'
