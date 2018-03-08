@@ -29,7 +29,7 @@ Try to check docker logs to give you a clue...
 
 ### How to run ?
 
-docker run -ti -v *configvolume*:/dst/cluster jamendub/dst:latest
+**docker run -ti -v *configvolume*:/dst/cluster jamendub/dst:latest**
 
 ### How to configure mods ?
 
