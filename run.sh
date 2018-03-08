@@ -2,7 +2,7 @@
 
 if [ -f "/dst/mods/dedicated_server_mods_setup.lua" ]
 then
-    cp -f dedicated_server_mods_setup.lua /dedicated_server_mods_setup.lua.bak
+    cp -f /dst/mods/dedicated_server_mods_setup.lua /dedicated_server_mods_setup.lua.bak
     echo 'mods config file dedicated_server_mods_setup.lua moved'
 fi
 
@@ -10,7 +10,7 @@ fi
 
 if [ -f "/dst/mods/dedicated_server_mods_setup.lua.bak" ]
 then
-    cp -f /dedicated_server_mods_setup.lua.bak dedicated_server_mods_setup.lua
+    cp -f /dedicated_server_mods_setup.lua.bak /dst/mods/dedicated_server_mods_setup.lua
     echo 'mods config file dedicated_server_mods_setup.lua restored'
 fi
 
