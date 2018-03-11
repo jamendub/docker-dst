@@ -2,16 +2,16 @@
 
 /steam/steamcmd.sh +login anonymous +force_install_dir /dst +app_update 343050 validate +quit
 
-if [ -f "/dst/cluter/mods/dedicated_server_mods_setup.lua" ]
+if [ -f "/dst/cluster/mods/dedicated_server_mods_setup.lua" ]
 then
-    cp -f /dst/cluter/mods/dedicated_server_mods_setup.lua /dst/mods/dedicated_server_mods_setup.lua
+    cp -f /dst/cluster/mods/dedicated_server_mods_setup.lua /dst/mods/dedicated_server_mods_setup.lua
     echo 'mods installation file "dedicated_server_mods_setup.lua" copied to correct directory'
 fi
 
-if [ -f "/dst/cluter/mods/modoverrides.lua" ]
+if [ -f "/dst/cluster/mods/modoverrides.lua" ]
 then
-    cp -f /dst/cluter/mods/modoverrides.lua /dst/cluster/Master/modoverrides.lua
-    cp -f /dst/cluter/mods/modoverrides.lua /dst/cluster/Caves/modoverrides.lua
+    cp -f /dst/cluster/mods/modoverrides.lua /dst/cluster/Master/modoverrides.lua
+    cp -f /dst/cluster/mods/modoverrides.lua /dst/cluster/Caves/modoverrides.lua
     echo 'mods config file "modoverrides.lua" applied to Master and Caves server'
 fi
 
