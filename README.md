@@ -22,7 +22,10 @@ Here is my list of files to give you an idea :
 -- *Master*\
 ---- modoverrides.lua\
 ---- server.ini\
----- worldgenoverride.lua
+---- worldgenoverride.lua\
+-- *mods*\
+---- dedicated_server_mods_setup.lua\
+---- modoverrides.lua
 
 If your container does not start that means config is wrong !
 Try to check docker logs to give you a clue...
@@ -31,30 +34,17 @@ Try to check docker logs to give you a clue...
 
 >**docker run -ti -v *cluster*:/dst/cluster jamendub/dst:latest**
 
-### How to configure mods ?
+### How to enable mods ?
 
-Inside the *mod* volume you have to put some files in order to download the mods when the server restarts.
-
+Inside the *cluster* volume you have a mods directory.
+You can put 2 files to configure and enable mods that will be copied during startup in their correct spot (the /dst/mods directory).
 Here is an example of my files (for detailed config go to the game forums/wikis) :
 
 https://forums.kleientertainment.com/topic/63723-guide-how-to-installconfigure-and-update-mods-on-dedicated-server/
 
->*mods*\
--- dedicated_server_mods_setup.lua\
--- modsettings.lua
 
 If your container does not start that means config is wrong !
 Try to check docker logs to give you a clue...
-
-### How to enable mods ?
-
-First you have to make sure that in the *configvolume* you put the configuration files described above.
-Then you can run the container this way so it takes the mods config in consideration.
-
->**docker run -ti\
--v *cluster*:/dst/cluster\
--v *mods*:/dst/mods\
-jamendub/dst:latest**
 
 ### How to update/restart ?
 
